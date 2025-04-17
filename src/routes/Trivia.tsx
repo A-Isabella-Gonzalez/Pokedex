@@ -40,10 +40,7 @@ Do not include markdown formatting or explanations.`,
 
 function Trivia() {
   const [triviaObj, setTriviaObj] = useState<Trivia>({} as Trivia);
-  const handleArrowClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    console.log("Hello Salem");
-  };
+  const [answer, setAnswer] = useState("");
 
   const handleNextQuestionClick = async (
     e: React.MouseEvent<HTMLButtonElement>
@@ -51,6 +48,10 @@ function Trivia() {
     e.preventDefault();
     const result = await fetchPokemonTrivia();
     setTriviaObj(result);
+  };
+
+  const handleRevealAnswerClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
   };
 
   useEffect(() => {
@@ -90,14 +91,15 @@ function Trivia() {
           <div className="w-36 flex place-content-center h-[39px]">
             <button
               className="w-18 h-18 rounded-full bg-[#365FAC]"
-              onClick={handleArrowClick}
+              onClick={handleRevealAnswerClick}
             >
               Answer
             </button>
           </div>
         </div>
         <div className="h-15 mt-5 w-200 bg-[#ffffff] rounded-2xl">
-          <p>{triviaObj?.answer}</p>
+          {/* <p>{triviaObj?.answer}</p> */}
+          <p>{`The answer is: ${answer}`}</p>
         </div>
       </section>
     </div>
