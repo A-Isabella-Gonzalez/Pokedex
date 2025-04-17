@@ -1,7 +1,7 @@
 import triviaPic from "../assets/trivia.png";
 
 function Trivia() {
-  const handleArrowClick = (e: any) => {
+  const handleArrowClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log("Hello Salem");
   };
