@@ -45,6 +45,14 @@ function Trivia() {
     console.log("Hello Salem");
   };
 
+  const handleNextQuestionClick = async (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+    const result = await fetchPokemonTrivia();
+    setTriviaObj(result);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await fetchPokemonTrivia(); // Wait for the async function to resolve
@@ -62,7 +70,7 @@ function Trivia() {
           <div className="w-36 flex place-content-center h-[39px]">
             <button
               className="w-18 h-18 rounded-full bg-[#365FAC]"
-              onClick={handleArrowClick}
+              onClick={handleNextQuestionClick}
             >
               Next Question
             </button>
