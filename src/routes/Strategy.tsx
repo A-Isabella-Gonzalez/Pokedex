@@ -43,173 +43,134 @@ function Strategy() {
   return (
     <div className="h-screen w-screen bg-[#ffb4b4]">
       <img className="m-auto w-[500px] pt-11" src={strategyPic} />
-      <div className="flex">
-        <img className="h-[450px] w-[450px] mt-1 ml-[275px]" src={strategy} />
-        <div className="grid-cols-1">
+      <div className="flex place-content-center">
+        <img className="h-[450px] w-[450px] mt-1" src={strategy} />
+        <div className="grid grid-cols-5 m-15 grid-flow-row ml-[130px] gap-x-5">
           <button
             onClick={() => {
               setStrategy(grassB);
             }}
           >
-            <img className="h-[65px] w-[65px] mb-1 ml-[125px]" src={grassS} />
+            <img className="h-[65px] w-[65px]" src={grassS} />
           </button>
           <button
             onClick={() => {
               setStrategy(fireB);
             }}
           >
-            <img className="h-[65px] w-[65px] mb-1 ml-[20px]" src={fireS} />
+            <img className="h-[65px] w-[65px]" src={fireS} />
           </button>
           <button
             onClick={() => {
               setStrategy(waterB);
             }}
           >
-            <img className="h-[65px] w-[65px] mb-1 ml-[20px]" src={waterS} />
+            <img className="h-[65px] w-[65px]" src={waterS} />
           </button>
           <button
             onClick={() => {
               setStrategy(electricB);
             }}
           >
-            <img className="h-[65px] w-[65px] mb-1 ml-[20px]" src={electricS} />
+            <img className="h-[65px] w-[65px]" src={electricS} />
           </button>
           <button
             onClick={() => {
               setStrategy(flyingB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-20 ml-[20px] mb-1 mr-[200px]"
-              src={flyingS}
-            />
+            <img className="h-[65px] w-[65px]" src={flyingS} />
           </button>
           <button
             onClick={() => {
               setStrategy(normalB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[125px]"
-              src={normalS}
-            />
+            <img className="h-[65px] w-[65px]" src={normalS} />
           </button>
           <button
             onClick={() => {
               setStrategy(groundB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]"
-              src={groundS}
-            />
+            <img className="h-[65px] w-[65px]" src={groundS} />
           </button>
           <button
             onClick={() => {
               setStrategy(rockB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]"
-              src={rockS}
-            />
+            <img className="h-[65px] w-[65px]" src={rockS} />
           </button>
           <button
             onClick={() => {
               setStrategy(psychicB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]"
-              src={psychicS}
-            />
+            <img className="h-[65px] w-[65px]" src={psychicS} />
           </button>
           <button
             onClick={() => {
               setStrategy(bugB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px] mr-[200px]"
-              src={bugS}
-            />
+            <img className="h-[65px] w-[65px]" src={bugS} />
           </button>
           <button
             onClick={() => {
               setStrategy(poisonB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[125px]"
-              src={poisonS}
-            />
+            <img className="h-[65px] w-[65px]" src={poisonS} />
           </button>
           <button
             onClick={() => {
               setStrategy(fightingB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]"
-              src={fightingS}
-            />
+            <img className="h-[65px] w-[65px]" src={fightingS} />
           </button>
           <button
             onClick={() => {
               setStrategy(iceB);
             }}
           >
-            <img className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]" src={iceS} />
+            <img className="h-[65px] w-[65px]" src={iceS} />
           </button>
           <button
             onClick={() => {
               setStrategy(ghostB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px]"
-              src={ghostS}
-            />
+            <img className="h-[65px] w-[65px]" src={ghostS} />
           </button>
           <button
             onClick={() => {
               setStrategy(darkB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-1 ml-[20px] mr-[200px]"
-              src={darkS}
-            />
+            <img className="h-[65px] w-[65px]" src={darkS} />
           </button>
           <button
             onClick={() => {
               setStrategy(steelB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-3 ml-[125px]"
-              src={steelS}
-            />
+            <img className="h-[65px] w-[65px] " src={steelS} />
           </button>
           <button
             onClick={() => {
               setStrategy(dragonB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-3 ml-[20px]"
-              src={dragonS}
-            />
+            <img className="h-[65px] w-[65px] " src={dragonS} />
           </button>
           <button
             onClick={() => {
               setStrategy(fairyB);
             }}
           >
-            <img
-              className="h-[65px] w-[65px] mt-2 mb-3 ml-[20px]"
-              src={fairyS}
-            />
+            <img className="h-[65px] w-[65px] " src={fairyS} />
           </button>
         </div>
       </div>
