@@ -10,7 +10,7 @@ export function Navbar() {
         Pokedex
       </Link>
       <Link to="/strategy" className="hover:underline">
-        Startegy
+        Strategy
       </Link>
       <Link to="/trivia" className="hover:underline">
         Trivia
