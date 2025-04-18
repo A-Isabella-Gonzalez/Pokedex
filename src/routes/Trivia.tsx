@@ -48,10 +48,12 @@ function Trivia() {
     e.preventDefault();
     const result = await fetchPokemonTrivia();
     setTriviaObj(result);
+    setAnswer("");
   };
 
   const handleRevealAnswerClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setAnswer(triviaObj?.answer);
   };
 
   useEffect(() => {
@@ -68,19 +70,21 @@ function Trivia() {
       <img className="m-auto w-[350px] pt-14" src={triviaPic} />
       <section className="flex flex-col items-center">
         <div className="flex items-center">
-          <div className="w-36 flex place-content-center h-[39px]">
+          <div className="w-50 flex place-content-center h-[39px]">
             <button
-              className="w-18 h-18 rounded-full bg-[#365FAC]"
+              className="w-38 h-25 rounded-full bg-[#365FAC] font-abeezee text-[23px] text-[#FFCC01] hover:bg-[#90a9da] hover:text-[#474747] hover:cursor-pointer"
               onClick={handleNextQuestionClick}
             >
               Next Question
             </button>
           </div>
           <div>
-            <div className="h-85 mt-4 w-200 bg-[#ffffff] rounded-2xl ">
-              <p>{triviaObj?.question}</p>
+            <div className="h-85 mt-4 w-200 bg-[#ffffff] rounded-2xl relative">
+              <p className="font-abeezee  pt-7 pl-5 pr-5 text-[30px] text-center">
+                {triviaObj?.question}
+              </p>
               {triviaObj?.options && (
-                <ol className="list-inside list-disc">
+                <ol className="list-inside list-disc font-abeezee text-3xl absolute top-37 left-15">
                   {triviaObj?.options?.map((option, index) => {
                     return <li key={index}>{option}</li>;
                   })}
@@ -88,9 +92,9 @@ function Trivia() {
               )}
             </div>
           </div>
-          <div className="w-36 flex place-content-center h-[39px]">
+          <div className="w-50 flex place-content-center h-[39px]">
             <button
-              className="w-18 h-18 rounded-full bg-[#365FAC]"
+              className="w-38 h-25 rounded-full bg-[#365FAC] font-abeezee text-[#FFCC01] text-[23px] hover:bg-[#90a9da] hover:text-[#474747] hover:cursor-pointer"
               onClick={handleRevealAnswerClick}
             >
               Answer
@@ -98,8 +102,7 @@ function Trivia() {
           </div>
         </div>
         <div className="h-15 mt-5 w-200 bg-[#ffffff] rounded-2xl">
-          {/* <p>{triviaObj?.answer}</p> */}
-          <p>{`The answer is: ${answer}`}</p>
+          <p className="font-abeezee mt-[12px] ml-4 text-[25px]">{`The answer is: ${answer}`}</p>
         </div>
       </section>
     </div>
