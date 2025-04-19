@@ -8,11 +8,12 @@ interface Trivia {
   question: string;
 }
 
-const ai = new GoogleGenAI({
-  apiKey: "AIzaSyBfNG_bRoBUM_zbtas4csux4SlNMlXZvOs",
-});
-
 async function fetchPokemonTrivia() {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const ai = new GoogleGenAI({
+    apiKey: apiKey,
+  });
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
