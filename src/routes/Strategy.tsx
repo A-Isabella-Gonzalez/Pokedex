@@ -47,6 +47,7 @@ function Strategy() {
         <img className="h-[450px] w-[450px] mt-1" src={strategy} />
         <div className="grid grid-cols-5 m-15 grid-flow-row ml-[130px] gap-x-5">
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(grassB);
             }}
@@ -54,6 +55,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={grassS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(fireB);
             }}
@@ -61,6 +63,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={fireS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(waterB);
             }}
@@ -68,6 +71,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={waterS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(electricB);
             }}
@@ -75,6 +79,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={electricS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(flyingB);
             }}
@@ -82,6 +87,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={flyingS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(normalB);
             }}
@@ -89,6 +95,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={normalS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(groundB);
             }}
@@ -96,6 +103,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={groundS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(rockB);
             }}
@@ -103,6 +111,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={rockS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(psychicB);
             }}
@@ -110,6 +119,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={psychicS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(bugB);
             }}
@@ -117,6 +127,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={bugS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(poisonB);
             }}
@@ -124,6 +135,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={poisonS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(fightingB);
             }}
@@ -131,6 +143,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={fightingS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(iceB);
             }}
@@ -138,6 +151,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={iceS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(ghostB);
             }}
@@ -145,6 +159,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={ghostS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(darkB);
             }}
@@ -152,6 +167,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px]" src={darkS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(steelB);
             }}
@@ -159,6 +175,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px] " src={steelS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(dragonB);
             }}
@@ -166,6 +183,7 @@ function Strategy() {
             <img className="h-[65px] w-[65px] " src={dragonS} />
           </button>
           <button
+            className="hover:cursor-pointer"
             onClick={() => {
               setStrategy(fairyB);
             }}
