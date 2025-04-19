@@ -25,6 +25,7 @@ function Pokedex() {
     return data;
   };
 
+  // function to fetch ability data
   // const fetchAbilityData = async (pokemonName: string): Promise<Pokemon> => {
   //   const response = await fetch(
   //     `https://pokeapi.co/api/v2/ability/${pokemonName.toLowerCase()}`
@@ -47,8 +48,8 @@ function Pokedex() {
 
     try {
       const fetchResponse = await fetchGeneralData(pokemonName);
+      // this is used to fetch specific data for each ability
       // const fetchAbilities = await fetchAbilityData("Stench");
-      // console.log(fetchAbilities);
       setPokeGeneralData(fetchResponse);
       console.log(fetchResponse);
     } catch (err: any) {
