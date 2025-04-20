@@ -41,7 +41,7 @@ function Strategy() {
   const [strategy, setStrategy] = useState(grassB);
 
   return (
-    <div className="h-screen w-screen bg-[#ffb4b4]">
+    <div className="h-screen w-screen bg-[#FB6C6C]">
       <img className="m-auto w-[500px] pt-11" src={strategyPic} />
       <div className="flex place-content-center">
         <img className="h-[450px] w-[450px] mt-1" src={strategy} />

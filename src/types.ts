@@ -6,6 +6,14 @@ interface Abilities {
   ability: Ability;
 }
 
+interface Move {
+  name: string;
+}
+
+interface Moves {
+  move: Move;
+}
+
 interface Types {
   type: { name: string };
 }
@@ -35,4 +43,5 @@ export interface Pokemon {
   weight: number;
   location_area_encounters: string;
   abilities: Abilities[];
+  moves: Moves[];
 }

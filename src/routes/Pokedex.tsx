@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { type Pokemon } from "../types";
+import pokedexPic from "../assets/pokedex.png";
 
 function Pokedex() {
   const [pokemonName, setPokemonName] = useState("");
@@ -22,22 +23,9 @@ function Pokedex() {
     }
 
     const data: Pokemon = await response.json();
+    console.log(data);
     return data;
   };
-
-  // function to fetch ability data
-  // const fetchAbilityData = async (pokemonName: string): Promise<Pokemon> => {
-  //   const response = await fetch(
-  //     `https://pokeapi.co/api/v2/ability/${pokemonName.toLowerCase()}`
-  //   );
-
-  //   if (!response.ok) {
-  //     throw new Error(`Pokémon not found: ${pokemonName}`);
-  //   }
-
-  //   const data: Pokemon = await response.json();
-  //   return data;
-  // };
 
   // this function handles the Search button
   const handleSubmit = async (e: React.MouseEvent) => {
@@ -48,10 +36,7 @@ function Pokedex() {
 
     try {
       const fetchResponse = await fetchGeneralData(pokemonName);
-      // this is used to fetch specific data for each ability
-      // const fetchAbilities = await fetchAbilityData("Stench");
       setPokeGeneralData(fetchResponse);
-      console.log(fetchResponse);
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
     } finally {
@@ -60,10 +45,11 @@ function Pokedex() {
   };
 
   return (
-    <div className="h-screen w-screen bg-[#C3EBCD]">
+    <div className=" bg-[#81d485]">
+      <img className="m-auto w-[380px] pt-12" src={pokedexPic} />
       {/* form handles the input submission */}
-      <form className="pt-40">
-        <label htmlFor="name-input">Pokemon name:</label>
+      <form className="ml-10 font-abeezee">
+        <label htmlFor="name-input z-10 ">Pokemon Name: </label>
         <input
           className="border"
           id="name-input"
@@ -78,24 +64,54 @@ function Pokedex() {
         {error && <p>{error}</p>}
         {loading && <p className="mt-2 text-gray-700">Loading...</p>}
       </form>
+      {/* This would be the pokedex image */}
+      <div className="flex h-full place-content-center pb-5">
+        <div className="mt-8 mr-10 h-[667px] w-[450px] bg-contain bg-[url(assets/what.png)] flex-none bg-no-repeat">
+          <div className="bg-white mt-[157px] ml-[68px] w-[314px] h-[211px] rounded-lg">
+            {pokeGeneralData && !loading && (
+              <div className="flex place-content-center">
+                <img
+                  className="h-56"
+                  src={pokeGeneralData.sprites.front_default}
+                  alt={pokeGeneralData.name}
+                />
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="mt-8 h-[667px] w-[425px] bg-contain bg-[url(assets/what1.png)] flex-none bg-no-repeat"></div>
+      </div>
+      {/* end of pokedex */}
       {pokeGeneralData && !loading && (
         <div className="mt-6">
-          <img
-            src={pokeGeneralData.sprites.front_default}
-            alt={pokeGeneralData.name}
-          />
-          <img
-            src={pokeGeneralData.sprites.front_female}
-            alt={pokeGeneralData.name}
-          />
-          <p className="text-lg capitalize">
-            Type: {pokeGeneralData.types[0]?.type?.name}
-          </p>
+          <div className="">
+            <p className="pt-3">TYPES:</p>
+            {/* this displays the types */}
+            {pokeGeneralData.abilities.length > 0 &&
+              pokeGeneralData.types.map((item, index) => {
+                return <p key={index}>{item?.type?.name}</p>;
+              })}
 
-          {pokeGeneralData.abilities.length > 0 &&
-            pokeGeneralData.abilities.map((item) => {
-              return <p>{item?.ability?.name}</p>;
-            })}
+            <p className="pt-3">ABILITIES:</p>
+            {/* this displays the abilities */}
+            {pokeGeneralData.abilities.length > 0 &&
+              pokeGeneralData.abilities.map((item, index) => {
+                return <p key={index}>{item?.ability?.name}</p>;
+              })}
+
+            <p className="pt-3">MOVES:</p>
+            {/* this displays the moves */}
+            {pokeGeneralData.moves.length > 0 &&
+              pokeGeneralData.moves.slice(0, 5).map((item, index) => {
+                return <p key={index}>{item?.move?.name}</p>;
+              })}
+
+            <p className="pt-3">HEIGHT:</p>
+            {pokeGeneralData.height > 0 && pokeGeneralData.height}
+
+            <p className="pt-3">WEIGHT:</p>
+            {pokeGeneralData.weight > 0 && pokeGeneralData.weight}
+          </div>
         </div>
       )}
     </div>
