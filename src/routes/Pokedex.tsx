@@ -2,8 +2,11 @@
 import { useState } from "react";
 import { type Pokemon } from "../types";
 import pokedexPic from "../assets/pokedex.png";
+import { decimetersToInches } from "../utilities";
+import { hectogramsToPounds } from "../utilities";
 
 function Pokedex() {
+  // this stores the string in the search bar
   const [pokemonName, setPokemonName] = useState("");
   // this stores the data fetched from the API
   const [pokeGeneralData, setPokeGeneralData] = useState<Pokemon | null>(null);
@@ -58,7 +61,7 @@ function Pokedex() {
           onChange={(e) => setPokemonName(e.target.value)}
         ></input>
         {/* button to submit */}
-        <button type="submit" onClick={handleSubmit}>
+        <button disabled={!pokemonName} type="submit" onClick={handleSubmit}>
           Search
         </button>
         {error && <p>{error}</p>}
@@ -107,10 +110,12 @@ function Pokedex() {
               })}
 
             <p className="pt-3">HEIGHT:</p>
-            {pokeGeneralData.height > 0 && pokeGeneralData.height}
+            {pokeGeneralData.height > 0 &&
+              `${Math.floor(decimetersToInches(pokeGeneralData.height))} in`}
 
             <p className="pt-3">WEIGHT:</p>
-            {pokeGeneralData.weight > 0 && pokeGeneralData.weight}
+            {pokeGeneralData.weight > 0 &&
+              `${Math.floor(hectogramsToPounds(pokeGeneralData.weight))} lbs`}
           </div>
         </div>
       )}
