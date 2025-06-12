@@ -52,16 +52,21 @@ function Pokedex() {
       <img className="m-auto w-[380px] pt-13" src={pokedexPic} />
       {/* form handles the input submission */}
       <form className="ml-10 font-abeezee font-bold">
-        <label htmlFor="name-input z-10">Pokemon Name: </label>
+        <label htmlFor="name-input z-10">Pokemon Name or Number: </label>
         <input
-          className="border bg-white mr-2"
+          className="border bg-white mr-2 font-normal"
           id="name-input"
           type="text"
           // value={inputValue}
           onChange={(e) => setPokemonName(e.target.value)}
         ></input>
         {/* button to submit */}
-        <button disabled={!pokemonName} type="submit" onClick={handleSubmit}>
+        <button
+          className="font-normal rounded-full text-white bg-[#3a3a3a] w-18 h-7  border-1 border-black hover:bg-[#bebebe] hover:text-black hover:cursor-pointer"
+          disabled={!pokemonName}
+          type="submit"
+          onClick={handleSubmit}
+        >
           Search
         </button>
         {error && <p>{error}</p>}
@@ -74,7 +79,7 @@ function Pokedex() {
             {pokeGeneralData && !loading && (
               <div className="flex place-content-center">
                 <img
-                  className="h-45 mt-5 place-content-stretch"
+                  className="h-46 mt-4 place-content-stretch"
                   src={pokeGeneralData.sprites.front_default}
                   alt={pokeGeneralData.name}
                 />
@@ -83,36 +88,48 @@ function Pokedex() {
           </div>
         </div>
         <div className="mt-8 h-[667px] w-[425px] bg-contain bg-[url(assets/what1.png)] flex-none bg-no-repeat">
-          <div className="bg-[#898989] mt-[45px] ml-[53px] w-[318px] h-[180px] rounded-lg border-1">
+          <div className="bg-[#bbbbbb] mt-[45px] ml-[53px] w-[318px] h-[180px] rounded-lg border-1">
             {pokeGeneralData && !loading && (
               <div>
                 <div className="inline-flex">
-                  <div className="pr-3 pt-4 pl-14.5">
+                  <div className="pt-4 pl-10">
                     <p className="font-abeezee font-bold">ABILITIES:</p>
                     {/* this displays the abilities */}
                     {pokeGeneralData.abilities.length > 0 &&
                       pokeGeneralData.abilities.map((item, index) => {
-                        return <p key={index}>{item?.ability?.name}</p>;
+                        return (
+                          <p className="font-abeezee capitalize" key={index}>
+                            {item?.ability?.name}
+                          </p>
+                        );
                       })}
                   </div>
 
-                  <div className="pl-3 m-auto">
+                  <div className="pl-6 ">
                     <p className="pt-4 font-abeezee font-bold">MOVES:</p>
                     {/* this displays the moves */}
                     {pokeGeneralData.moves.length > 0 &&
                       pokeGeneralData.moves.slice(0, 5).map((item, index) => {
-                        return <p key={index}>{item?.move?.name}</p>;
+                        return (
+                          <p className="font-abeezee capitalize" key={index}>
+                            {item?.move?.name}
+                          </p>
+                        );
                       })}
                   </div>
                 </div>
 
                 <div className="inline-flex mt-18">
-                  <div className="pl-13 pr-5">
+                  <div className="pl-13 pr-6">
                     <p className="pt-3 font-abeezee font-bold">TYPES:</p>
                     {/* this displays the types */}
                     {pokeGeneralData.abilities.length > 0 &&
                       pokeGeneralData.types.map((item, index) => {
-                        return <p key={index}>{item?.type?.name}</p>;
+                        return (
+                          <p className="font-abeezee capitalize" key={index}>
+                            {item?.type?.name}
+                          </p>
+                        );
                       })}
                   </div>
 
