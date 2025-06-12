@@ -49,7 +49,7 @@ function Pokedex() {
 
   return (
     <div className=" bg-[#81d485]">
-      <img className="m-auto w-[380px] pt-19" src={pokedexPic} />
+      <img className="m-auto w-[380px] pt-13" src={pokedexPic} />
       {/* form handles the input submission */}
       <form className="ml-10 font-abeezee font-bold">
         <label htmlFor="name-input z-10">Pokemon Name: </label>
