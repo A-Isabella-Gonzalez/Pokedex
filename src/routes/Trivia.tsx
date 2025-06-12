@@ -8,11 +8,12 @@ interface Trivia {
   question: string;
 }
 
-const ai = new GoogleGenAI({
-  apiKey: "AIzaSyBfNG_bRoBUM_zbtas4csux4SlNMlXZvOs",
-});
-
 async function fetchPokemonTrivia() {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const ai = new GoogleGenAI({
+    apiKey: apiKey,
+  });
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
@@ -66,8 +67,8 @@ function Trivia() {
   }, []); // Only run once when component mounts
 
   return (
-    <div className="h-screen w-screen bg-[#fff9a9]">
-      <img className="m-auto w-[350px] pt-14" src={triviaPic} />
+    <div className="h-screen w-screen bg-[#ece17c]">
+      <img className="m-auto w-[300px] pt-14" src={triviaPic} />
       <section className="flex flex-col items-center">
         <div className="flex items-center">
           <div className="w-50 flex place-content-center h-[39px]">
@@ -80,7 +81,7 @@ function Trivia() {
           </div>
           <div>
             <div className="h-85 mt-4 w-200 bg-[#ffffff] rounded-2xl relative">
-              <p className="font-abeezee  pt-7 pl-5 pr-5 text-[30px] text-center">
+              <p className="font-abeezee pt-7 pl-5 pr-5 text-[30px] text-center">
                 {triviaObj?.question}
               </p>
               {triviaObj?.options && (
