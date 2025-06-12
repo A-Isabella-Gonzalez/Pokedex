@@ -42,7 +42,7 @@ function Strategy() {
 
   return (
     <div className="h-screen w-screen bg-[#FB6C6C]">
-      <img className="m-auto w-[500px] pt-11" src={strategyPic} />
+      <img className="m-auto w-[500px] pt-16" src={strategyPic} />
       <div className="flex place-content-center">
         <img className="h-[450px] w-[450px] mt-1" src={strategy} />
         <div className="grid grid-cols-5 m-15 grid-flow-row ml-[130px] gap-x-5">

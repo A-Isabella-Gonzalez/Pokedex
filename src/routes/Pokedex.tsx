@@ -49,12 +49,12 @@ function Pokedex() {
 
   return (
     <div className=" bg-[#81d485]">
-      <img className="m-auto w-[380px] pt-12" src={pokedexPic} />
+      <img className="m-auto w-[380px] pt-19" src={pokedexPic} />
       {/* form handles the input submission */}
-      <form className="ml-10 font-abeezee">
-        <label htmlFor="name-input z-10 ">Pokemon Name: </label>
+      <form className="ml-10 font-abeezee font-bold">
+        <label htmlFor="name-input z-10">Pokemon Name: </label>
         <input
-          className="border"
+          className="border bg-white mr-2"
           id="name-input"
           type="text"
           // value={inputValue}
@@ -70,11 +70,11 @@ function Pokedex() {
       {/* This would be the pokedex image */}
       <div className="flex h-full place-content-center pb-5">
         <div className="mt-8 mr-10 h-[667px] w-[450px] bg-contain bg-[url(assets/what.png)] flex-none bg-no-repeat">
-          <div className="bg-white mt-[157px] ml-[68px] w-[314px] h-[211px] rounded-lg">
+          <div className="bg-white mt-[157px] ml-[68px] w-[314px] h-[211px] rounded-lg border-1">
             {pokeGeneralData && !loading && (
               <div className="flex place-content-center">
                 <img
-                  className="h-56"
+                  className="h-45 mt-5 place-content-stretch"
                   src={pokeGeneralData.sprites.front_default}
                   alt={pokeGeneralData.name}
                 />
@@ -82,43 +82,62 @@ function Pokedex() {
             )}
           </div>
         </div>
-        <div className="mt-8 h-[667px] w-[425px] bg-contain bg-[url(assets/what1.png)] flex-none bg-no-repeat"></div>
-      </div>
-      {/* end of pokedex */}
-      {pokeGeneralData && !loading && (
-        <div className="mt-6">
-          <div className="">
-            <p className="pt-3">TYPES:</p>
-            {/* this displays the types */}
-            {pokeGeneralData.abilities.length > 0 &&
-              pokeGeneralData.types.map((item, index) => {
-                return <p key={index}>{item?.type?.name}</p>;
-              })}
+        <div className="mt-8 h-[667px] w-[425px] bg-contain bg-[url(assets/what1.png)] flex-none bg-no-repeat">
+          <div className="bg-[#898989] mt-[45px] ml-[53px] w-[318px] h-[180px] rounded-lg border-1">
+            {pokeGeneralData && !loading && (
+              <div>
+                <div className="inline-flex">
+                  <div className="pr-3 pt-4 pl-14.5">
+                    <p className="font-abeezee font-bold">ABILITIES:</p>
+                    {/* this displays the abilities */}
+                    {pokeGeneralData.abilities.length > 0 &&
+                      pokeGeneralData.abilities.map((item, index) => {
+                        return <p key={index}>{item?.ability?.name}</p>;
+                      })}
+                  </div>
 
-            <p className="pt-3">ABILITIES:</p>
-            {/* this displays the abilities */}
-            {pokeGeneralData.abilities.length > 0 &&
-              pokeGeneralData.abilities.map((item, index) => {
-                return <p key={index}>{item?.ability?.name}</p>;
-              })}
+                  <div className="pl-3 m-auto">
+                    <p className="pt-4 font-abeezee font-bold">MOVES:</p>
+                    {/* this displays the moves */}
+                    {pokeGeneralData.moves.length > 0 &&
+                      pokeGeneralData.moves.slice(0, 5).map((item, index) => {
+                        return <p key={index}>{item?.move?.name}</p>;
+                      })}
+                  </div>
+                </div>
 
-            <p className="pt-3">MOVES:</p>
-            {/* this displays the moves */}
-            {pokeGeneralData.moves.length > 0 &&
-              pokeGeneralData.moves.slice(0, 5).map((item, index) => {
-                return <p key={index}>{item?.move?.name}</p>;
-              })}
+                <div className="inline-flex mt-18">
+                  <div className="pl-13 pr-5">
+                    <p className="pt-3 font-abeezee font-bold">TYPES:</p>
+                    {/* this displays the types */}
+                    {pokeGeneralData.abilities.length > 0 &&
+                      pokeGeneralData.types.map((item, index) => {
+                        return <p key={index}>{item?.type?.name}</p>;
+                      })}
+                  </div>
 
-            <p className="pt-3">HEIGHT:</p>
-            {pokeGeneralData.height > 0 &&
-              `${Math.floor(decimetersToInches(pokeGeneralData.height))} in`}
+                  <div className="pr-5">
+                    <p className="pt-3 font-abeezee font-bold">HEIGHT:</p>
+                    {pokeGeneralData.height > 0 &&
+                      `${Math.floor(
+                        decimetersToInches(pokeGeneralData.height)
+                      )} in`}
+                  </div>
 
-            <p className="pt-3">WEIGHT:</p>
-            {pokeGeneralData.weight > 0 &&
-              `${Math.floor(hectogramsToPounds(pokeGeneralData.weight))} lbs`}
+                  <div>
+                    <p className="pt-3 font-abeezee font-bold">WEIGHT:</p>
+                    {pokeGeneralData.weight > 0 &&
+                      `${Math.floor(
+                        hectogramsToPounds(pokeGeneralData.weight)
+                      )} lbs`}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      )}
+      </div>
+      {/* end of pokedex */}
     </div>
   );
 }
